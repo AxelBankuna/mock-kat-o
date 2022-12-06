@@ -23,8 +23,10 @@ public class Copier implements ISource, IDestination {
     }
 
     public void copy() {
-        for (int i = 0; i < this.source.length() && this.source.charAt(0) != '\n'; i++) {
+        String sourceCopy = this.source;
+        for (int i = 0; i < this.source.length() && this.source.charAt(0) != '\n'; ) {
             this.writeChar(this.readChar());
         }
+        this.source = sourceCopy;
     }
 }
